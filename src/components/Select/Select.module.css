@@ -1,0 +1,12 @@
+.select .main {
+    border: 1px solid black;
+    display: inline-block;
+    min-height: 20px;
+    min-width: 40px;
+}
+
+.items {
+    position: sticky;
+    padding: 5px;
+    border: 1px solid black;
+}

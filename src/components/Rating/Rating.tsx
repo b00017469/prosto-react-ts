@@ -2,7 +2,14 @@ import React from "react";
 
 export type RatingValuePropsType = 0 | 1 | 2 | 3 | 4 | 5
 export type RatingPropsType = {
+    /**
+     * Rating is numbers 0|1|2|3|4|5
+     */
     value: RatingValuePropsType
+    /**
+     * Callback function)
+     * @param value
+     */
     onClick: (value: RatingValuePropsType)=>void
 }
 

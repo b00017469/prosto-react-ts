@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import './App.css';
-import { Accordion } from './components/Accordion/Accordion';
+import {Accordion} from './components/Accordion/Accordion';
 import {OnOff} from "./components/OnOff/OnOff";
 import PageTitle from "./components/Rating/PageTitle";
 import {Rating, RatingValuePropsType} from './components/Rating/Rating';
 import {UncontrolledAccordion} from "./components/Accordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/Rating/UncontrolledRating";
 import {UncontrolledOnOff} from "./components/OnOff/UncontrolledOnOff";
+import {ControledCheckbox, ControledSelect, Input} from "./components/Input/Input";
+import {Select} from "./components/Select/Select";
 
 
 function App() {
@@ -17,6 +19,10 @@ function App() {
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
 
     const [isOn, setIsOn] = useState<boolean>(false)
+    const items = [{title: 'Dimych', value: 1},
+        {title: 'Valera', value: 2},
+        {title: 'Sasha', value: 3},
+        {title: 'Masha', value: 4}]
 
     return (
         <div className="App">
@@ -26,13 +32,20 @@ function App() {
             <UncontrolledRating/>
 
             <Accordion title={"Menu"} collapsed={accordionCollapsed}
-                       onClick={()=>setAccordionCollapsed(!accordionCollapsed)}/>
+                       onClick={() => setAccordionCollapsed(!accordionCollapsed)}
+                       items={items}/>
 
-            <UncontrolledAccordion title={"UncontrolledMenu"}/>
+           {/* <UncontrolledAccordion title={"UncontrolledMenu"}/>
             <UncontrolledAccordion title={"Uncontrolled Users"}/>
 
-            <OnOff isOn={isOn}  onClick={setIsOn}/>
-            <UncontrolledOnOff />
+            <OnOff isOn={isOn} onClick={setIsOn}/>
+            <UncontrolledOnOff/>*/}
+            <Input/>
+            <ControledCheckbox/>
+            <ControledSelect/>
+            <hr/>
+            <Select items={items}/>
+            <hr/>
         </div>
     );
 }
