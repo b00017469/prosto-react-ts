@@ -35,11 +35,10 @@ function App() {
                        onClick={() => setAccordionCollapsed(!accordionCollapsed)}
                        items={items}/>
 
-           {/* <UncontrolledAccordion title={"UncontrolledMenu"}/>
             <UncontrolledAccordion title={"Uncontrolled Users"}/>
 
             <OnOff isOn={isOn} onClick={setIsOn}/>
-            <UncontrolledOnOff/>*/}
+            <UncontrolledOnOff/>
             <Input/>
             <ControledCheckbox/>
             <ControledSelect/>
