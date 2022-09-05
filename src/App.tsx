@@ -9,6 +9,7 @@ import {UncontrolledRating} from "./components/Rating/UncontrolledRating";
 import {UncontrolledOnOff} from "./components/OnOff/UncontrolledOnOff";
 import {ControledCheckbox, ControledSelect, Input} from "./components/Input/Input";
 import {Select} from "./components/Select/Select";
+import {Clock} from "./components/Clock/Clock";
 
 
 function App() {
@@ -45,6 +46,8 @@ function App() {
             <hr/>
             <Select items={items}/>
             <hr/>
+            <Clock isAnalog={true}/>
+
         </div>
     );
 }

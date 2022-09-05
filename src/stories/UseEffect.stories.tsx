@@ -45,16 +45,24 @@ export const Example2 = () => {
 }
 
 export const ExampleClock = () => {
-    console.log('Clock')
+
     const [time, setTime] = useState(new Date())
 
     useEffect(() => {
-        setInterval(() => {
-            setTime(new Date())
-        }, 1000)
-    }, [])
-    const seconds = time.getSeconds()
+            console.log('use')
+            const intervalId = setInterval(() => {
+                console.log('Clock')
+                setTime(new Date())
+            }, 1000)
+            return()=>{
+             clearInterval(intervalId)
+            }}
+        , [])
+
+    const formatTime = (time: number) => {
+        return time <= 9 ? '0' + time : time
+    }
     return <>
-        Time: {time.getHours()}:{time.getMinutes()}:{seconds <= 9 ? '0' + seconds : seconds}
+        Time: {formatTime(time.getHours())}:{formatTime(time.getMinutes())}:{formatTime(time.getSeconds())}
     </>
 }
