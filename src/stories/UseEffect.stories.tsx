@@ -54,9 +54,10 @@ export const ExampleClock = () => {
                 console.log('Clock')
                 setTime(new Date())
             }, 1000)
-            return()=>{
-             clearInterval(intervalId)
-            }}
+            return () => {
+                clearInterval(intervalId)
+            }
+        }
         , [])
 
     const formatTime = (time: number) => {
@@ -64,5 +65,43 @@ export const ExampleClock = () => {
     }
     return <>
         Time: {formatTime(time.getHours())}:{formatTime(time.getMinutes())}:{formatTime(time.getSeconds())}
+    </>
+}
+
+export const Example4 = () => {
+    console.log('Example4')
+    const [text, setText] = useState('')
+    console.log('Component rendered with ' + text)
+
+    useEffect(() => {
+        const handler = (e:KeyboardEvent) => {
+                console.log(e.key)
+                setText(text + e.key)
+        }
+        window.addEventListener('keypress', handler)
+        return ()=> {window.removeEventListener('keypress', handler)}
+    }, [text])
+
+    return <>
+        Hello, counter: {text}
+
+    </>
+}
+
+export const Example5 = () => {
+    console.log('Example5')
+    const [text, setText] = useState('')
+
+    useEffect(() => {
+      const timeoutID= setTimeout(()=>{
+           console.log('timeout')
+           setText('3 sec left')
+       }, 3000)
+        return ()=> {clearTimeout(timeoutID)}
+    }, [text])
+
+    return <>
+        Hello, counter: {text}
+
     </>
 }
